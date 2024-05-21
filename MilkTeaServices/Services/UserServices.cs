@@ -21,6 +21,8 @@ namespace MilkTeaServices.Services
 
         public bool ChangeStatusUser(User user) => _userRepo.ChangeStatusUser(user);
 
+        public User CheckLogin(string email, string password) => _userRepo.CheckLogin(email, password);
+
         public List<User> GetAllUser() => _userRepo.GetAllUser();
 
         public User GetUserByID(int id) => _userRepo.GetUserByID(id);

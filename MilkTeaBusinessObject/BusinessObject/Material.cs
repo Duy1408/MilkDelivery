@@ -13,9 +13,6 @@ namespace MilkTeaBusinessObject.BusinessObject
         public int Quantity { get; set; }
         public double Price { get; set; }
         public bool Status { get; set; }
-        public int TeaID { get; set; }
-        public Tea Tea { get; set; }
-
         public List<DetailsMaterial> DetailsMaterials { get; set; }
     }
 }

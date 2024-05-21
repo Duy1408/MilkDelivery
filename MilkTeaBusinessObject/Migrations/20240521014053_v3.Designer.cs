@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilkTeaBusinessObject.BusinessObject;
 
@@ -11,9 +12,10 @@ using MilkTeaBusinessObject.BusinessObject;
 namespace MilkTeaBusinessObject.Migrations
 {
     [DbContext(typeof(MilkTeaDeliveryDBContext))]
-    partial class MilkTeaDeliveryDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240521014053_v3")]
+    partial class v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -124,7 +126,12 @@ namespace MilkTeaBusinessObject.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<int>("TeaID")
+                        .HasColumnType("int");
+
                     b.HasKey("MaterialID");
+
+                    b.HasIndex("TeaID");
 
                     b.ToTable("Material", (string)null);
                 });
@@ -373,6 +380,17 @@ namespace MilkTeaBusinessObject.Migrations
                     b.Navigation("Tea");
                 });
 
+            modelBuilder.Entity("MilkTeaBusinessObject.BusinessObject.Material", b =>
+                {
+                    b.HasOne("MilkTeaBusinessObject.BusinessObject.Tea", "Tea")
+                        .WithMany("Materials")
+                        .HasForeignKey("TeaID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Tea");
+                });
+
             modelBuilder.Entity("MilkTeaBusinessObject.BusinessObject.Order", b =>
                 {
                     b.HasOne("MilkTeaBusinessObject.BusinessObject.User", "User")
@@ -468,6 +486,8 @@ namespace MilkTeaBusinessObject.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("DetailsMaterials");
+
+                    b.Navigation("Materials");
 
                     b.Navigation("OrderDetails");
                 });

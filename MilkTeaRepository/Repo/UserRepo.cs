@@ -17,6 +17,8 @@ namespace MilkTeaRepository.Repo
 
         public bool ChangeStatusUser(User user) => dao.ChangeStatusUser(user);
 
+        public User CheckLogin(string email, string password) => dao.CheckLogin(email, password);
+
         public List<User> GetAllUser() => dao.GetAllUser();
 
         public User GetUserByID(int id) => dao.GetUserByID(id);
