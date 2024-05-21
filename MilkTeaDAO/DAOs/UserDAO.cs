@@ -15,6 +15,10 @@ namespace MilkTeaDAO.DAOs
         {
             _context = new MilkTeaDeliveryDBContext();
         }
+        public User CheckLogin(string email, string password)
+        {
+            return _context.Users.Where(u => u.Email!.Equals(email) && u.Password!.Equals(password)).FirstOrDefault();
+        }
 
         public List<User> GetAllUser()
         {

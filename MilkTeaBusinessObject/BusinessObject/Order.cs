@@ -19,5 +19,6 @@ namespace MilkTeaBusinessObject.BusinessObject
         public int UserID { get; set; }
         public User User { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
+        public List<TaskUser> TaskUsers { get; set; }
     }
 }

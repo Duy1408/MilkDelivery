@@ -20,8 +20,7 @@ namespace MilkTeaDAO.DAOs
         {
             try
             {
-                return _context.Materials.Include(c => c.Tea)
-                                    .ToList();
+                return _context.Materials.ToList();
             }
             catch (Exception ex)
             {
@@ -47,8 +46,7 @@ namespace MilkTeaDAO.DAOs
         {
             try
             {
-                var material = _context.Materials!.Include(c => c.Tea)
-                                                 .SingleOrDefault(c => c.MaterialID == id);
+                var material = _context.Materials!.SingleOrDefault(c => c.MaterialID == id);
                 return material;
             }
             catch (Exception ex)

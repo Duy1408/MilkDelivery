@@ -23,7 +23,6 @@ namespace MilkTeaDAO.DAOs
             {
                 return _context.Teas.Include(c => c.Comments)
                                     .Include(a => a.OrderDetails)
-                                    .Include(b => b.Materials)
                                     .ToList();
             }
             catch (Exception ex)
@@ -52,7 +51,6 @@ namespace MilkTeaDAO.DAOs
             {
                 var tea = _context.Teas!.Include(c => c.Comments)
                                            .Include(a => a.OrderDetails)
-                                           .Include(b => b.Materials)
                                            .SingleOrDefault(c => c.TeaID == id);
                 return tea;
             }

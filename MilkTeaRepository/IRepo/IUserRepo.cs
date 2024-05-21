@@ -9,6 +9,7 @@ namespace MilkTeaRepository.IRepo
 {
     public interface IUserRepo
     {
+        User CheckLogin(string email, string password);
         List<User> GetAllUser();
         void AddNewUser(User user);
         User GetUserByID(int id);

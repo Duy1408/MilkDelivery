@@ -23,7 +23,6 @@ namespace MilkTeaBusinessObject.FluentAPI
             builder.Property(x => x.Image);
             builder.HasMany(x => x.Comments).WithOne(x => x.Tea).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.OrderDetails).WithOne(x => x.Tea).OnDelete(DeleteBehavior.NoAction);
-            builder.HasMany(x => x.Materials).WithOne(x => x.Tea).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(x => x.DetailsMaterials).WithOne(x => x.Tea).OnDelete(DeleteBehavior.NoAction);
 
 

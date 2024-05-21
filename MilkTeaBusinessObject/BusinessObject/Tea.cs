@@ -18,7 +18,6 @@ namespace MilkTeaBusinessObject.BusinessObject
         public List<Comment> Comments { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
 
-        public List<Material> Materials { get; set; }
         public List<DetailsMaterial> DetailsMaterials { get; set; }
     }
 }
